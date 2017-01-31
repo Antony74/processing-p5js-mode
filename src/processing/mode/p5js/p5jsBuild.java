@@ -177,7 +177,9 @@ public class p5jsBuild {
     PApplet.saveStrings(htmlFile, PApplet.split(html, '\n'));
     */
 
-    PApplet.saveStrings(htmlFile, PApplet.split(htmlDoc.toString(), '\n'));
+	htmlDoc.outputSettings().prettyPrint(false);
+
+    PApplet.saveStrings(htmlFile, PApplet.split(htmlDoc.toString().replace("\r\n", "\n"), '\n'));
 
     // reload in the Editor
     if (indexCode != null) {
